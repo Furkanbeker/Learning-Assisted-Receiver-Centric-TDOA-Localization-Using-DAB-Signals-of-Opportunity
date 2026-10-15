@@ -1,0 +1,20 @@
+# Generated outputs (MATLAB datasets, AI results, figures)
+results/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# MATLAB
+*.asv
+*.m~
+slprj/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,24 @@
+function [pointInfo, gdopInfo, geometryScore, geometryClass] = evaluate_point_geometry(pointPos, txPos, refPos, refGeomInfo, txGeomInfo)
+    % EVALUATE_POINT_GEOMETRY  Geometry metrics of the TDOA setup at one UAV position.
+    %
+    % Used both at the true UAV position (evaluation only) and at the GN
+    % estimate (observable, used as AI features).
+    %
+    % Outputs
+    %   pointInfo      hull membership and distance to the TX centroid
+    %   gdopInfo       GDOP-like metric and condition number
+    %   geometryScore  heuristic geometry score in [0, 1]
+    %   geometryClass  "good" / "medium" / "bad"
+
+    pointInfo = compute_point_geometry_info(pointPos, txPos);
+    gdopInfo = compute_tdoa_geometry_metrics(txPos, refPos, pointPos);
+    geometryScore = compute_geometry_score( ...
+        pointInfo.isInsideTxPolygon, ...
+        refGeomInfo.isInsideTxPolygon, ...
+        gdopInfo.gdop_like, ...
+        gdopInfo.condition_number, ...
+        pointInfo.pointToCentroidDist, ...
+        refGeomInfo.pointToCentroidDist, ...
+        txGeomInfo.equivalentRadius);
+    geometryClass = classify_geometry(geometryScore);
+end

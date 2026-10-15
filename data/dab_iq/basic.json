@@ -1,0 +1,17 @@
+{
+  "label": "MediComm-DAB",
+  "short_label": "MediComm",
+  "audio_input": "basic.wav",
+  "normalized_wav": "20260419_223026_MediComm-DAB_48k.wav",
+  "audio_duration_s": 5.16,
+  "target_iq_duration_s": 5.96,
+  "iq_output": "basic.cf32",
+  "eti_file": "render_20260419_223026.eti",
+  "frequency_hz": 195936000,
+  "bitrate_kbps": 120,
+  "sample_rate_hz": 2048000,
+  "format": "complexf",
+  "channels": 2,
+  "source_sample_rate_hz": 48000,
+  "final_iq_bytes": 97648640
+}
