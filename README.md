@@ -197,10 +197,6 @@ show the reception on a DAB radio and a short recording of the test.
 }
 ```
 
-## License
-
-&lt;License to be added (e.g. MIT). Add a LICENSE file at the repository root.&gt;
-
 ## Contact
 
-&lt;Corresponding author, e-mail&gt;
+&lt;Mustafa Furkan Beker, mustafafurkanbeker@gmail.com&gt;
