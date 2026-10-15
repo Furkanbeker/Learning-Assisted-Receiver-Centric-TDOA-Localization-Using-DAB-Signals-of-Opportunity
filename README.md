@@ -3,7 +3,8 @@
 Code and data for the paper
 
 > **Learning-Assisted Receiver-Centric TDOA Localization Using DAB Signals of Opportunity**
-> &lt;author list&gt;, submitted to *IEEE Access*.
+> &lt;MUSTAFA FURKAN BEKER, ABDULLAH TAN, KHALED ELGAMMAL,
+AND MEHMET KEMAL ÖZDEMIR&gt;, submitted to *IEEE Access*.
 
 A UAV is localized with time differences of arrival (TDOA) of Digital Audio
 Broadcasting (DAB) signals. A static reference receiver (REF) and the UAV
