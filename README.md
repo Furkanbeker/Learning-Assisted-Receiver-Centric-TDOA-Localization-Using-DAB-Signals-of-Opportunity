@@ -14,7 +14,9 @@ cancel in the receiver-centric TDOA (UAV minus REF). The repository contains
    waveform, PRS-based TOA estimation, a multi-start weighted Gauss-Newton
    (GN) solver and a maneuver-adaptive CT-EKF, and
 2. a **Python pipeline** that trains the learning-assisted corrections
-   (L1, B1, B3) and produces the result tables and figures.
+   (L1, B1, B3) and produces the result tables and figures, and
+3. the **DAB generation tools** (GUI + ODR scripts) used to create the DAB
+   waveform and to transmit it with an ADALM-PLUTO for an over-the-air test.
 
 ```
  DAB IQ waveform ─► link simulation ─► PRS TOA ─► TDOA ─► GN ─► CT-EKF ─► dataset (CSV)
@@ -44,6 +46,7 @@ cancel in the receiver-centric TDOA (UAV minus REF). The repository contains
 │   ├── make_paper_figures.py         GN vs EKF vs proposed-method figures
 │   ├── requirements.txt
 │   └── dab_tdoa/                     Package (config, features, models, GN, EKF, ...)
+├── dab_generation/                   DAB waveform generation and TX GUI (see its README)
 ├── data/dab_iq/
 │   ├── basic.cf32                    DAB Mode-I baseband IQ waveform
 │   └── basic.json                    Metadata of the waveform
@@ -70,7 +73,9 @@ xgboost versions&gt;.
 `data/dab_iq/basic.cf32` is a standard-compliant DAB Mode-I baseband
 waveform: interleaved complex float32 samples (I, Q, I, Q, ...) at
 2.048 MS/s, 5.96 s long. It was generated from an ETI stream carrying one
-120 kbps audio service ("MediComm-DAB"); see `basic.json`. The simulator
+120 kbps audio service ("MediComm-DAB"); see `basic.json`. It was produced
+with the tools in [`dab_generation/`](dab_generation/README.md) from
+`dab_generation/audio/basic.wav`. The simulator
 uses the first 2 s of the file as the transmitted waveform of all four
 transmitters.
 
@@ -174,16 +179,19 @@ Test set of the reference run (1,500 scenarios, 75,000 measurements):
 
 ## Over-the-air test
 
-As a sanity check, the waveform was transmitted with an SDR
-(&lt;SDR model&gt;) and decoded by a commercial DAB radio and a car head unit
+As a sanity check, the waveform was transmitted with an ADALM-PLUTO SDR on
+DAB channel 8A (195.936 MHz) using the tools in
+[`dab_generation/`](dab_generation/README.md), and the "MediComm-DAB"
+service was decoded by a commercial DAB radio and a car head unit
 (`media/`):
 
 | | |
 |---|---|
 | ![SDR transmitter](media/sdr_transmitter_setup.jpeg) | ![Car head unit](media/car_head_unit_reception.jpeg) |
 
-`media/dab_radio_reception.jpeg` and `media/over_the_air_test_car.mov`
-show the reception on a DAB radio and a short recording of the test.
+`media/dab_radio_reception.jpeg`, `media/car_head_unit_reception_2.jpeg`
+and `media/over_the_air_test_car.mov` show the reception on a DAB radio, a
+second view of the car head unit and a short recording of the test.
 
 ## Citation
 

@@ -1,0 +1,112 @@
+/* ui_style.qss - dark theme of the DAB TX GUI (loaded by main.py) */
+
+QWidget {
+    background: #0f1115;
+    color: #e6e6e6;
+    font-family: "Segoe UI";
+    font-size: 10.5pt;
+}
+
+QMainWindow::separator {
+    background: #222733;
+    width: 1px;
+    height: 1px;
+}
+
+QGroupBox {
+    border: 1px solid #2a3140;
+    border-radius: 14px;
+    margin-top: 12px;
+    padding: 12px;
+    background: #121521;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 0 8px;
+    color: #cfd6e6;
+    font-weight: 700;
+}
+
+QFrame {
+    border-radius: 14px;
+    background: #121521;
+}
+
+QLabel {
+    color: #e6e6e6;
+}
+
+QLineEdit, QComboBox, QDoubleSpinBox, QSpinBox {
+    background: #0b0d13;
+    border: 1px solid #2a3140;
+    border-radius: 10px;
+    padding: 6px 10px;
+    selection-background-color: #2b6cb0;
+}
+
+QComboBox::drop-down {
+    border: 0px;
+    width: 26px;
+}
+
+QComboBox QAbstractItemView {
+    background: #0b0d13;
+    border: 1px solid #2a3140;
+    selection-background-color: #2b6cb0;
+}
+
+QPushButton {
+    background: #1a2030;
+    border: 1px solid #2a3140;
+    border-radius: 12px;
+    padding: 8px 14px;
+    font-weight: 700;
+}
+
+QPushButton:hover {
+    background: #222b40;
+}
+
+QPushButton:pressed {
+    background: #151a26;
+}
+
+QPushButton#btn_kill_all {
+    background: #3a1d1d;
+    border: 1px solid #6b2a2a;
+}
+
+QPushButton#btn_kill_all:hover {
+    background: #4a2323;
+}
+
+QPlainTextEdit, QTextEdit {
+    background: #0b0d13;
+    border: 1px solid #2a3140;
+    border-radius: 12px;
+    padding: 10px;
+    font-family: "Cascadia Mono";
+    font-size: 9.8pt;
+}
+
+QScrollBar:vertical {
+    background: #0f1115;
+    width: 12px;
+    margin: 2px;
+}
+
+QScrollBar::handle:vertical {
+    background: #2a3140;
+    border-radius: 6px;
+    min-height: 30px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #3a445a;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
